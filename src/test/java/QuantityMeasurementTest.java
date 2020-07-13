@@ -18,4 +18,10 @@ public class QuantityMeasurementTest {
         Unit feet1 = new Unit(0);
         Assert.assertFalse(this.unitComparator.compare(feet1, null));
     }
+
+    @Test
+    public void givenSameReferanceOfUnit_ShouldReturnTrue() {
+        Unit feet1 = new Unit(0);
+        Assert.assertTrue(this.unitComparator.compare(feet1,feet1));
+    }
 }
