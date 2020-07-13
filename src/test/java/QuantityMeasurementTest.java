@@ -4,7 +4,7 @@ import com.quantityMeasurement.UnitCreatorFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.quantityMeasurement.QuantityMeasurementException.ExceptionType.*;
+import static com.quantityMeasurement.QuantityMeasurementException.ExceptionType.NO_UNIT_FOUND;
 import static com.quantityMeasurement.Unit.*;
 
 public class QuantityMeasurementTest {
@@ -117,5 +117,12 @@ public class QuantityMeasurementTest {
         UnitCreatorFactory inch = new UnitCreatorFactory(36.0, INCH);
         UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
         Assert.assertTrue(unitComparator.compare(inch, yard));
+    }
+
+    @Test
+    public void given1YardAnd3Feet_IfEqualsReturnTrue() throws QuantityMeasurementException {
+        UnitCreatorFactory feet = new UnitCreatorFactory(3.0, FEET);
+        UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
+        Assert.assertTrue(unitComparator.compare(yard, feet));
     }
 }
