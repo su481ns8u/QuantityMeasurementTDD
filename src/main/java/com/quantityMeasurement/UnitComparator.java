@@ -1,10 +1,11 @@
 package com.quantityMeasurement;
 
+import static com.quantityMeasurement.QuantityMeasurementException.ExceptionType.*;
+
 public class UnitComparator {
-    double value;
-    public boolean compare(Unit unit1, Unit unit2) {
-        if (unit1.equals(unit2))
-            return true;
-        return false;
+    public boolean compare(UnitCreatorFactory unit1, UnitCreatorFactory unit2) throws QuantityMeasurementException {
+        if (unit1 == null || unit2 == null)
+            throw new QuantityMeasurementException(NO_UNIT_FOUND, NO_UNIT_FOUND.message);
+        return unit1.equals(unit2);
     }
 }
