@@ -97,4 +97,11 @@ public class QuantityMeasurementTest {
         UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
         Assert.assertFalse(unitComparator.compare(feet, yard));
     }
+
+    @Test
+    public void given1InchAnd1Yard_IfNotEqualsReturnFalse() throws QuantityMeasurementException {
+        UnitCreatorFactory inch = new UnitCreatorFactory(1.0, INCH);
+        UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
+        Assert.assertFalse(unitComparator.compare(inch, yard));
+    }
 }
