@@ -74,13 +74,20 @@ public class QuantityMeasurementTest {
     public void givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue() throws QuantityMeasurementException {
         UnitCreatorFactory feet = new UnitCreatorFactory(0.0, FEET);
         UnitCreatorFactory inch = new UnitCreatorFactory(0.0, INCH);
-        Assert.assertTrue(unitComparator.compare(feet,inch));
+        Assert.assertTrue(unitComparator.compare(feet, inch));
     }
 
     @Test
     public void givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue() throws QuantityMeasurementException {
         UnitCreatorFactory feet = new UnitCreatorFactory(1.0, FEET);
         UnitCreatorFactory inch = new UnitCreatorFactory(12.0, INCH);
-        Assert.assertTrue(unitComparator.compare(feet,inch));
+        Assert.assertTrue(unitComparator.compare(feet, inch));
+    }
+
+    @Test
+    public void given3FeetAnd1Yard_IfEqualsReturnTrue() throws QuantityMeasurementException {
+        UnitCreatorFactory feet = new UnitCreatorFactory(3.0, FEET);
+        UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
+        Assert.assertTrue(unitComparator.compare(feet, yard));
     }
 }
