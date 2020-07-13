@@ -90,4 +90,11 @@ public class QuantityMeasurementTest {
         UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
         Assert.assertTrue(unitComparator.compare(feet, yard));
     }
+
+    @Test
+    public void given1FeetAnd1Yard_IfNotEqualsReturnFalse() throws QuantityMeasurementException {
+        UnitCreatorFactory feet = new UnitCreatorFactory(1.0, FEET);
+        UnitCreatorFactory yard = new UnitCreatorFactory(1.0, YARD);
+        Assert.assertFalse(unitComparator.compare(feet, yard));
+    }
 }
