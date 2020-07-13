@@ -12,4 +12,10 @@ public class QuantityMeasurementTest {
         Unit feet2 = new Unit(0);
         Assert.assertTrue(this.unitComparator.compare(feet1,feet2));
     }
+
+    @Test
+    public void givenNullValueWhileComparingUnits_ShouldReturnFalse() {
+        Unit feet1 = new Unit(0);
+        Assert.assertFalse(this.unitComparator.compare(feet1, null));
+    }
 }
