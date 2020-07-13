@@ -22,6 +22,13 @@ public class QuantityMeasurementTest {
     @Test
     public void givenSameReferanceOfUnit_ShouldReturnTrue() {
         Unit feet1 = new Unit(0);
-        Assert.assertTrue(this.unitComparator.compare(feet1,feet1));
+        Assert.assertEquals(feet1,feet1);
+    }
+
+    @Test
+    public void givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue() {
+        Unit feet1 = new Unit(0);
+        Unit feet2 = new Unit(1);
+        Assert.assertEquals(feet1.getClass(), feet2.getClass());
     }
 }
