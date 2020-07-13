@@ -1,4 +1,4 @@
-package com.quantityMeasurement;
+package com.quantityMeasurement.Utilities;
 
 public class UnitCreatorFactory {
     private final Unit unit;

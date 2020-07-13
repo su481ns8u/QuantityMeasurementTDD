@@ -1,6 +1,9 @@
-package com.quantityMeasurement;
+package com.quantityMeasurement.Services;
 
-import static com.quantityMeasurement.QuantityMeasurementException.ExceptionType.NO_UNIT_FOUND;
+import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+import com.quantityMeasurement.Utilities.UnitCreatorFactory;
+
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NO_UNIT_FOUND;
 
 public class UnitComparator {
     public boolean compare(UnitCreatorFactory unit1, UnitCreatorFactory unit2) throws QuantityMeasurementException {

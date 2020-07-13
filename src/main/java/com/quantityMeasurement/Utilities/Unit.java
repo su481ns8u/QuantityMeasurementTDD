@@ -1,4 +1,4 @@
-package com.quantityMeasurement;
+package com.quantityMeasurement.Utilities;
 
 public enum Unit {
     FEET(12),

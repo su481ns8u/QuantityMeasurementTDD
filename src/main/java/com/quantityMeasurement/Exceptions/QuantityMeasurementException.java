@@ -1,10 +1,10 @@
-package com.quantityMeasurement;
+package com.quantityMeasurement.Exceptions;
 
 public class QuantityMeasurementException extends Throwable {
     public enum ExceptionType {
         NO_UNIT_FOUND("Two Units Expected !");
 
-        String message;
+        public String message;
 
         ExceptionType(String message){
             this.message = message;

@@ -1,11 +1,11 @@
-import com.quantityMeasurement.QuantityMeasurementException;
-import com.quantityMeasurement.UnitComparator;
-import com.quantityMeasurement.UnitCreatorFactory;
+import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+import com.quantityMeasurement.Services.UnitComparator;
+import com.quantityMeasurement.Utilities.UnitCreatorFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.quantityMeasurement.QuantityMeasurementException.ExceptionType.NO_UNIT_FOUND;
-import static com.quantityMeasurement.Unit.*;
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NO_UNIT_FOUND;
+import static com.quantityMeasurement.Utilities.Unit.*;
 
 public class QuantityMeasurementTest {
     UnitComparator unitComparator = new UnitComparator();

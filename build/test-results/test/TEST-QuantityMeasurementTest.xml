@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="QuantityMeasurementTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-07-13T21:31:47" hostname="DESKTOP-9DCLVAF" time="0.025">
+<testsuite name="QuantityMeasurementTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-07-13T21:39:27" hostname="DESKTOP-9DCLVAF" time="0.026">
   <properties/>
   <testcase name="givenSameReferanceOfUnitInch_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.003"/>
   <testcase name="givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenSameUnitInch_ReturnsTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenSameUnitInch_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
   <testcase name="givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
   <testcase name="givenTwoObjectsOfInchWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
   <testcase name="givenNullValueWhileComparingUnitInch_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.002"/>
   <testcase name="given36InchAnd1Yard_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenSameUnitFeet_ReturnsTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenNullValueWhileComparingUnits_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given1yardAnd36inch_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenSameUnitFeet_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenNullValueWhileComparingUnits_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="given1yardAnd36inch_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
   <testcase name="given1YardAnd3Feet_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
   <testcase name="givenSameReferanceOfUnit_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
   <testcase name="given1InchAnd1Yard_IfNotEqualsReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
