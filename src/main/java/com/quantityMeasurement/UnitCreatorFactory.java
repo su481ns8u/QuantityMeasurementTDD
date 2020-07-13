@@ -14,7 +14,6 @@ public class UnitCreatorFactory {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UnitCreatorFactory that = (UnitCreatorFactory) o;
-        return Double.compare(that.value, value) == 0 &&
-                unit == that.unit;
+        return Double.compare(that.value, value) == 0;
     }
 }

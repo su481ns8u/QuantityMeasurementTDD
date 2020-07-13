@@ -1,8 +1,8 @@
 package com.quantityMeasurement;
 
 public enum Unit {
-    FEET(1),
-    INCH(12);
+    FEET(12),
+    INCH(1);
 
     double value;
 
