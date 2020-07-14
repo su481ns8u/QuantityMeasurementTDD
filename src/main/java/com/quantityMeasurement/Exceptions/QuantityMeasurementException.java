@@ -2,7 +2,7 @@ package com.quantityMeasurement.Exceptions;
 
 public class QuantityMeasurementException extends Throwable {
     public enum ExceptionType {
-        NO_UNIT_FOUND("Two Units Expected !");
+        NULL_UNIT("Comparision Expects two arguments!");
 
         public String message;
 
@@ -13,8 +13,8 @@ public class QuantityMeasurementException extends Throwable {
 
     public ExceptionType type;
 
-    public QuantityMeasurementException(ExceptionType type, String message) {
-        super(message);
+    public QuantityMeasurementException(ExceptionType type) {
+        super(type.message);
         this.type = type;
     }
 }
