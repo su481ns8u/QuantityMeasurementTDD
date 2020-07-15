@@ -260,4 +260,12 @@ public class QuantityMeasurementTest {
         WeightUnitCreatorFactory kg = new WeightUnitCreatorFactory(1000.0, KG);
         Assert.assertTrue(unitOperations.compare(tone, kg));
     }
+
+    @Test
+    public void givenTwoWeightUnitsTonAndGrams_WhenAddedTogether_ReturnsAddition() throws QuantityMeasurementException {
+        WeightUnitCreatorFactory ton = new WeightUnitCreatorFactory(1.0, TONS);
+        WeightUnitCreatorFactory grams = new WeightUnitCreatorFactory(1000.0, GRAM);
+        double sumOfUnits = unitOperations.addUnits(ton, grams);
+        Assert.assertEquals(1001.0, sumOfUnits, 0.0);
+    }
 }
