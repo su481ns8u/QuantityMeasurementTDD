@@ -4,6 +4,7 @@ import com.quantityMeasurement.Utilities.LengthUnitCreatorFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NEGATIVE_VALUE;
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NULL_UNIT;
 import static com.quantityMeasurement.Utilities.Unit.*;
 
@@ -18,7 +19,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenNullValueWhileComparingUnits_ShouldReturnFalse() {
+    public void givenNullValueWhileComparingUnits_ShouldReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet1 = new LengthUnitCreatorFactory(0.0, FEET);
         try {
             unitComparator.compare(feet1, null);
@@ -28,13 +29,13 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameReferenceOfUnit_ShouldReturnTrue() {
+    public void givenSameReferenceOfUnit_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(0.0, FEET);
         Assert.assertEquals(feet, feet);
     }
 
     @Test
-    public void givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue() {
+    public void givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet1 = new LengthUnitCreatorFactory(0.0, FEET);
         LengthUnitCreatorFactory feet2 = new LengthUnitCreatorFactory(1.0, FEET);
         Assert.assertEquals(feet1.getClass(), feet2.getClass());
@@ -48,7 +49,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenNullValueWhileComparingUnitInch_ShouldReturnFalse() {
+    public void givenNullValueWhileComparingUnitInch_ShouldReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch1 = new LengthUnitCreatorFactory(0.0, INCH);
         try {
             unitComparator.compare(inch1, null);
@@ -58,13 +59,13 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameReferenceOfUnitInch_ShouldReturnTrue() {
+    public void givenSameReferenceOfUnitInch_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(0.0, INCH);
         Assert.assertEquals(inch, inch);
     }
 
     @Test
-    public void givenTwoObjectsOfInchWithSameType_ShouldReturnTrue() {
+    public void givenTwoObjectsOfInchWithSameType_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch1 = new LengthUnitCreatorFactory(0.0, INCH);
         LengthUnitCreatorFactory inch2 = new LengthUnitCreatorFactory(1.0, INCH);
         Assert.assertEquals(inch2.getClass(), inch1.getClass());
@@ -131,5 +132,15 @@ public class QuantityMeasurementTest {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
         LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(5.0, CM);
         Assert.assertTrue(unitComparator.compare(inch, cm));
+    }
+
+    @Test
+    public void givenNegativeValueForWhileSettingUnit_ShouldThrowException() {
+        try {
+            new LengthUnitCreatorFactory(-2.0, INCH);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(NEGATIVE_VALUE, e.type);
+        }
+
     }
 }
