@@ -1,28 +1,27 @@
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
-import com.quantityMeasurement.Services.UnitComparator;
+import com.quantityMeasurement.Services.UnitOperations;
 import com.quantityMeasurement.Utilities.LengthUnitCreatorFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NEGATIVE_VALUE;
-import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.INVALID_ARGUMENTS;
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.*;
 import static com.quantityMeasurement.Utilities.Unit.*;
 
 public class QuantityMeasurementTest {
-    UnitComparator unitComparator = new UnitComparator();
+    UnitOperations unitOperations = new UnitOperations();
 
     @Test
     public void givenSameUnitFeet_ReturnsTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet1 = new LengthUnitCreatorFactory(0.0, FEET);
         LengthUnitCreatorFactory feet2 = new LengthUnitCreatorFactory(0.0, FEET);
-        Assert.assertTrue(unitComparator.compare(feet1, feet2));
+        Assert.assertTrue(unitOperations.compare(feet1, feet2));
     }
 
     @Test
     public void givenNullValueWhileComparingUnits_ShouldReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet1 = new LengthUnitCreatorFactory(0.0, FEET);
         try {
-            unitComparator.compare(feet1, null);
+            unitOperations.compare(feet1, null);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(INVALID_ARGUMENTS, e.type);
         }
@@ -45,14 +44,14 @@ public class QuantityMeasurementTest {
     public void givenSameUnitInch_ReturnsTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch1 = new LengthUnitCreatorFactory(0.0, INCH);
         LengthUnitCreatorFactory inch2 = new LengthUnitCreatorFactory(0.0, INCH);
-        Assert.assertTrue(unitComparator.compare(inch1, inch2));
+        Assert.assertTrue(unitOperations.compare(inch1, inch2));
     }
 
     @Test
     public void givenNullValueWhileComparingUnitInch_ShouldReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch1 = new LengthUnitCreatorFactory(0.0, INCH);
         try {
-            unitComparator.compare(inch1, null);
+            unitOperations.compare(inch1, null);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(INVALID_ARGUMENTS, e.type);
         }
@@ -75,63 +74,63 @@ public class QuantityMeasurementTest {
     public void givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(0.0, FEET);
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(0.0, INCH);
-        Assert.assertTrue(unitComparator.compare(feet, inch));
+        Assert.assertTrue(unitOperations.compare(feet, inch));
     }
 
     @Test
     public void givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(1.0, FEET);
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(12.0, INCH);
-        Assert.assertTrue(unitComparator.compare(feet, inch));
+        Assert.assertTrue(unitOperations.compare(feet, inch));
     }
 
     @Test
     public void given3FeetAnd1Yard_IfEqualsReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(3.0, FEET);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertTrue(unitComparator.compare(feet, yard));
+        Assert.assertTrue(unitOperations.compare(feet, yard));
     }
 
     @Test
     public void given1FeetAnd1Yard_IfNotEqualsReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(1.0, FEET);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertFalse(unitComparator.compare(feet, yard));
+        Assert.assertFalse(unitOperations.compare(feet, yard));
     }
 
     @Test
     public void given1InchAnd1Yard_IfNotEqualsReturnFalse() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(1.0, INCH);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertFalse(unitComparator.compare(inch, yard));
+        Assert.assertFalse(unitOperations.compare(inch, yard));
     }
 
     @Test
     public void given1yardAnd36inch_IfEqualsReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(36.0, INCH);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertTrue(unitComparator.compare(yard, inch));
+        Assert.assertTrue(unitOperations.compare(yard, inch));
     }
 
     @Test
     public void given36InchAnd1Yard_IfEqualsReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(36.0, INCH);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertTrue(unitComparator.compare(inch, yard));
+        Assert.assertTrue(unitOperations.compare(inch, yard));
     }
 
     @Test
     public void given1YardAnd3Feet_IfEqualsReturnTrue() throws QuantityMeasurementException {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(3.0, FEET);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
-        Assert.assertTrue(unitComparator.compare(yard, feet));
+        Assert.assertTrue(unitOperations.compare(yard, feet));
     }
 
     @Test
     public void given2InchAnd5Cm_IfEqualsReturnTrue() throws QuantityMeasurementException {
-        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
-        LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(5.0, CM);
-        Assert.assertTrue(unitComparator.compare(inch, cm));
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(5.0, INCH);
+        LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(12.5, CM);
+        Assert.assertTrue(unitOperations.compare(inch, cm));
     }
 
     @Test
@@ -147,7 +146,7 @@ public class QuantityMeasurementTest {
     public void givenOnlyOneArgument_ShouldThrowException() throws QuantityMeasurementException {
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
         try {
-            Assert.assertTrue(unitComparator.compare(inch));
+            Assert.assertTrue(unitOperations.compare(inch));
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(INVALID_ARGUMENTS, e.type);
         }
@@ -158,6 +157,47 @@ public class QuantityMeasurementTest {
         LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(3.0, FEET);
         LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
         LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(36.0, INCH);
-        Assert.assertTrue(unitComparator.compare(feet, yard, inch));
+        LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(90.0, CM);
+        Assert.assertTrue(unitOperations.compare(feet, yard, inch, cm));
+    }
+
+    @Test
+    public void givenTwoUnitsOfSameTypeLength_ShouldBeAddedTogether() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory inch1 = new LengthUnitCreatorFactory(2.0, INCH);
+        LengthUnitCreatorFactory inch2 = new LengthUnitCreatorFactory(2.0, INCH);
+        double sumOfUnits = unitOperations.addUnits(inch1, inch2);
+        Assert.assertEquals(4.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoUnitsOfDifferentTypesFeetAndInchLength_ShouldBeAddedTogether() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(1.0, FEET);
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
+        double sumOfUnits = unitOperations.addUnits(feet, inch);
+        Assert.assertEquals(14.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoUnitsOfDifferentTypesFeetAndFeetLength_ShouldBeAddedTogether() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(1.0, FEET);
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(1.0, FEET);
+        double sumOfUnits = unitOperations.addUnits(feet, inch);
+        Assert.assertEquals(24.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoUnitsOfDifferentTypesInchAndCmLength_ShouldBeAddedTogether() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
+        LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(2.5, CM);
+        double sumOfUnits = unitOperations.addUnits(cm, inch);
+        Assert.assertEquals(3.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoValuesOfDifferentTypes_WhileAdding_ShouldThrowException() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
+        LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(2.5, CM);
+        double sumOfUnits = unitOperations.addUnits(cm, inch);
+        Assert.assertEquals(3.0, sumOfUnits, 0.0);
     }
 }
