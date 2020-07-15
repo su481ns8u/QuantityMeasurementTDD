@@ -1,7 +1,9 @@
 package com.quantityMeasurement.Utilities;
 
-public interface Units {
+public interface IUnitsCreatorFactory {
     public double getValue();
-    public Unit getUnit();
-    public void convert(Unit unit);
+
+    public Units getUnit();
+
+    public void convert(Units unit);
 }

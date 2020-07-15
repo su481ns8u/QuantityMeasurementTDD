@@ -2,7 +2,6 @@ package com.quantityMeasurement.Services;
 
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
 import com.quantityMeasurement.Utilities.IUnitsCreatorFactory;
-import com.quantityMeasurement.Utilities.Units;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,7 +10,7 @@ import java.util.List;
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.INVALID_ARGUMENTS;
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.UNITS_MISMATCH;
 
-public class UnitOperations {
+public class QuantityOperations {
     /**
      * Method to compare values and units
      *

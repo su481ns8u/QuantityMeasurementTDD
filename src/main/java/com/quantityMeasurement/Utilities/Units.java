@@ -1,6 +1,6 @@
 package com.quantityMeasurement.Utilities;
 
-public enum Unit {
+public enum Units {
     FEET(12),
     INCH(1),
     YARD(36),
@@ -19,7 +19,7 @@ public enum Unit {
 
     public double conversionFactor;
 
-    Unit(double conversionFactor) {
+    Units(double conversionFactor) {
         this.conversionFactor = conversionFactor;
     }
 }
