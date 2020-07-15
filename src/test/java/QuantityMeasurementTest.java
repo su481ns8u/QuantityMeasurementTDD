@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NEGATIVE_VALUE;
-import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NULL_UNIT;
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.INVALID_ARGUMENTS;
 import static com.quantityMeasurement.Utilities.Unit.*;
 
 public class QuantityMeasurementTest {
@@ -24,7 +24,7 @@ public class QuantityMeasurementTest {
         try {
             unitComparator.compare(feet1, null);
         } catch (QuantityMeasurementException e) {
-            Assert.assertEquals(NULL_UNIT, e.type);
+            Assert.assertEquals(INVALID_ARGUMENTS, e.type);
         }
     }
 
@@ -54,7 +54,7 @@ public class QuantityMeasurementTest {
         try {
             unitComparator.compare(inch1, null);
         } catch (QuantityMeasurementException e) {
-            Assert.assertEquals(NULL_UNIT, e.type);
+            Assert.assertEquals(INVALID_ARGUMENTS, e.type);
         }
     }
 
@@ -141,6 +141,23 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(NEGATIVE_VALUE, e.type);
         }
+    }
 
+    @Test
+    public void givenOnlyOneArgument_ShouldThrowException() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(2.0, INCH);
+        try {
+            Assert.assertTrue(unitComparator.compare(inch));
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(INVALID_ARGUMENTS, e.type);
+        }
+    }
+
+    @Test
+    public void givenMoreThanTwoArguments_IfEqualsReturnTrue() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory feet = new LengthUnitCreatorFactory(3.0, FEET);
+        LengthUnitCreatorFactory yard = new LengthUnitCreatorFactory(1.0, YARD);
+        LengthUnitCreatorFactory inch = new LengthUnitCreatorFactory(36.0, INCH);
+        Assert.assertTrue(unitComparator.compare(feet, yard, inch));
     }
 }
