@@ -2,7 +2,6 @@ package com.quantityMeasurement.Services;
 
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
 import com.quantityMeasurement.Utilities.LengthUnitCreatorFactory;
-import com.quantityMeasurement.Utilities.Unit;
 
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NULL_UNIT;
 

@@ -1,10 +1,15 @@
 package com.quantityMeasurement.Utilities;
 
+import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NEGATIVE_VALUE;
+
 public class LengthUnitCreatorFactory {
     public final Unit unit;
     public final double value;
 
-    public LengthUnitCreatorFactory(double value, Unit unit) {
+    public LengthUnitCreatorFactory(double value, Unit unit) throws QuantityMeasurementException {
+        if (value < 0) throw new QuantityMeasurementException(NEGATIVE_VALUE);
         this.value = value * unit.conversionFactor;
         this.unit = unit;
     }
