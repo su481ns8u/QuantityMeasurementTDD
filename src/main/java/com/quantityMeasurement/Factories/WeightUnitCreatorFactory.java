@@ -27,11 +27,6 @@ public class WeightUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public Units getUnit() {
-        return unit;
-    }
-
-    @Override
     public double getValue() {
         return value;
     }

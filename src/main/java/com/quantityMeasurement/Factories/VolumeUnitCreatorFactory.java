@@ -33,11 +33,6 @@ public class VolumeUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public Units getUnit() {
-        return this.unit;
-    }
-
-    @Override
     public void convert(Units unit) {
         this.value = value / unit.conversionFactor;
         this.unit = unit;
