@@ -12,7 +12,10 @@ public enum Unit {
 
     KG(1),
     GRAM(1.0 / 1000.0),
-    TONS(1000);
+    TONS(1000),
+
+    FAHRENHEIT(1),
+    CELSIUS(1);
 
     public double conversionFactor;
 
