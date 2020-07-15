@@ -1,4 +1,5 @@
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+import com.quantityMeasurement.Factories.WeightUnitCreatorFactory;
 import com.quantityMeasurement.Services.UnitOperations;
 import com.quantityMeasurement.Factories.LengthUnitCreatorFactory;
 import com.quantityMeasurement.Factories.VolumeUnitCreatorFactory;
@@ -237,5 +238,26 @@ public class QuantityMeasurementTest {
         VolumeUnitCreatorFactory ml = new VolumeUnitCreatorFactory(1000, MILLI_LITER);
         double sumOfUnits = unitOperations.addUnits(liter, ml);
         Assert.assertEquals(2.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenSameUnitWeights_ReturnsTrue() throws QuantityMeasurementException {
+        WeightUnitCreatorFactory kg1 = new WeightUnitCreatorFactory(0.0, KG);
+        WeightUnitCreatorFactory kg2 = new WeightUnitCreatorFactory(0.0, KG);
+        Assert.assertTrue(unitOperations.compare(kg1, kg2));
+    }
+
+    @Test
+    public void givenDifferentUnitsOfWeightsKGAndGrams_ReturnsTrue() throws QuantityMeasurementException {
+        WeightUnitCreatorFactory kg = new WeightUnitCreatorFactory(1.0, KG);
+        WeightUnitCreatorFactory gram = new WeightUnitCreatorFactory(1000.0, GRAM);
+        Assert.assertTrue(unitOperations.compare(kg, gram));
+    }
+
+    @Test
+    public void givenDifferentUnitsOfWeightsKGAndTone_ReturnsTrue() throws QuantityMeasurementException {
+        WeightUnitCreatorFactory tone = new WeightUnitCreatorFactory(1.0, TONS);
+        WeightUnitCreatorFactory kg = new WeightUnitCreatorFactory(1000.0, KG);
+        Assert.assertTrue(unitOperations.compare(tone, kg));
     }
 }
