@@ -222,4 +222,20 @@ public class QuantityMeasurementTest {
         VolumeUnitCreatorFactory liter = new VolumeUnitCreatorFactory(1.0, LITRE);
         Assert.assertTrue(unitOperations.compare(liter, ml));
     }
+
+    @Test
+    public void givenTwoVolumeUnitsLiterAndGallon_WhenAddedTogether_ReturnsAddition() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory liter = new VolumeUnitCreatorFactory(3.78, LITRE);
+        VolumeUnitCreatorFactory gallon = new VolumeUnitCreatorFactory(1.0, GALLON);
+        double sumOfUnits = unitOperations.addUnits(liter, gallon);
+        Assert.assertEquals(7.56, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoVolumeUnitsLiterAndMilliLiter_WhenAddedTogether_ReturnsAddition() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory liter = new VolumeUnitCreatorFactory(1, LITRE);
+        VolumeUnitCreatorFactory ml = new VolumeUnitCreatorFactory(1000, MILLI_LITER);
+        double sumOfUnits = unitOperations.addUnits(liter, ml);
+        Assert.assertEquals(2.0, sumOfUnits, 0.0);
+    }
 }
