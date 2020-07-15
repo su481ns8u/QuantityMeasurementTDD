@@ -3,12 +3,17 @@ package com.quantityMeasurement.Services;
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
 import com.quantityMeasurement.Utilities.LengthUnitCreatorFactory;
 
-import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NULL_UNIT;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.INVALID_ARGUMENTS;
 
 public class UnitComparator {
-    public boolean compare(LengthUnitCreatorFactory unit1, LengthUnitCreatorFactory unit2) throws QuantityMeasurementException {
-        if (unit1 == null || unit2 == null)
-            throw new QuantityMeasurementException(NULL_UNIT);
-        return unit1.equals(unit2);
+    public boolean compare(LengthUnitCreatorFactory... unit) throws QuantityMeasurementException {
+        List<LengthUnitCreatorFactory> list = Arrays.asList(unit);
+        if (list.size() <= 1 || list.contains(null))
+            throw new QuantityMeasurementException(INVALID_ARGUMENTS);
+        return Collections.frequency(list, list.get(0)) == list.size();
     }
 }

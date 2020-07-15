@@ -2,8 +2,8 @@ package com.quantityMeasurement.Exceptions;
 
 public class QuantityMeasurementException extends Throwable {
     public enum ExceptionType {
-        NULL_UNIT("Comparision Expects two arguments!"),
-        NEGATIVE_VALUE("Negative value not accepted");
+        INVALID_ARGUMENTS("Comparision Expects two or more not null arguments!"),
+        NEGATIVE_VALUE("Negative value not accepted!");
 
         public String message;
 
