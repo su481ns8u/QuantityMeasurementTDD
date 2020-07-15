@@ -1,4 +1,5 @@
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+import com.quantityMeasurement.Factories.TemperatureUnitCreatorFactory;
 import com.quantityMeasurement.Factories.WeightUnitCreatorFactory;
 import com.quantityMeasurement.Services.UnitOperations;
 import com.quantityMeasurement.Factories.LengthUnitCreatorFactory;
@@ -267,5 +268,20 @@ public class QuantityMeasurementTest {
         WeightUnitCreatorFactory grams = new WeightUnitCreatorFactory(1000.0, GRAM);
         double sumOfUnits = unitOperations.addUnits(ton, grams);
         Assert.assertEquals(1001.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenTwoTemperaturesWithSameUnitAndValue_ShouldReturnTrue() throws QuantityMeasurementException {
+        TemperatureUnitCreatorFactory cel1 = new TemperatureUnitCreatorFactory(0.0, CELSIUS);
+        TemperatureUnitCreatorFactory cel2 = new TemperatureUnitCreatorFactory(0.0, CELSIUS);
+        Assert.assertEquals(cel1, cel2);
+    }
+
+    @Test
+    public void givenTwoTemperaturesWithDifferentUnitAndValue_ShouldReturnTrue() throws QuantityMeasurementException {
+        TemperatureUnitCreatorFactory cel = new TemperatureUnitCreatorFactory(100.0, CELSIUS);
+        TemperatureUnitCreatorFactory far = new TemperatureUnitCreatorFactory(212.0, FAHRENHEIT);
+        far.convert(CELSIUS);
+        Assert.assertEquals(cel, far);
     }
 }
