@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">16</div>
+<div class="counter">46</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.014s</div>
+<div class="counter">0.083s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,17 +76,17 @@
 </thead>
 <tr>
 <td class="success">given1FeetAnd1Yard_IfNotEqualsReturnFalse</td>
-<td class="success">0.001s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given1InchAnd1Yard_IfNotEqualsReturnFalse</td>
-<td class="success">0.001s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given1YardAnd3Feet_IfEqualsReturnTrue</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -95,12 +95,52 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">given2InchAnd5Cm_IfEqualsReturnTrue</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">given36InchAnd1Yard_IfEqualsReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given3FeetAnd1Yard_IfEqualsReturnTrue</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDifferentUnitLiterAndGallon_ReturnsTrue</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDifferentUnitsLiterAndMilliLiter_ReturnsTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDifferentUnitsOfWeightsKGAndGrams_ReturnsTrue</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenDifferentUnitsOfWeightsKGAndTone_ReturnsTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenLiterVolume_ShouldReturnGallon</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenMoreThanTwoArguments_IfEqualsReturnTrue</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenNegativeValueForWhileSettingUnit_ShouldThrowException</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
@@ -111,17 +151,22 @@
 </tr>
 <tr>
 <td class="success">givenNullValueWhileComparingUnits_ShouldReturnFalse</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">givenSameReferanceOfUnitInch_ShouldReturnTrue</td>
-<td class="success">0.003s</td>
+<td class="success">givenOnlyOneArgument_ShouldThrowException</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">givenSameReferanceOfUnit_ShouldReturnTrue</td>
-<td class="success">0s</td>
+<td class="success">givenSameReferenceOfUnitInch_ShouldReturnTrue</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenSameReferenceOfUnit_ShouldReturnTrue</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -131,11 +176,31 @@
 </tr>
 <tr>
 <td class="success">givenSameUnitInch_ReturnsTrue</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenSameUnitLiter_ReturnsTrue</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">givenSameUnitWeights_ReturnsTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTonsWeight_ShouldReturnKG</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoObjectsOfInchWithDifferentType_ShouldReturnFalse</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
@@ -145,13 +210,98 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue</td>
+<td class="success">givenTwoTemperatureUnitsCelAndFar_WhenAddedTogether_ReturnsAddition</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoTemperaturesWithDifferentUnitAndValue_ShouldReturnTrue</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoTemperaturesWithSameUnitAndValue_ShouldReturnTrue</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue</td>
+<td class="success">givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue</td>
 <td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoUnitsOfDifferentTypesFeetAndFeetLength_ShouldBeAddedTogether</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoUnitsOfDifferentTypesFeetAndInchLength_ShouldBeAddedTogether</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoUnitsOfDifferentTypesInchAndCmLength_ShouldBeAddedTogether</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoUnitsOfSameTypeLength_ShouldBeAddedTogether</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoValuesOfDifferentTypes_WhileAdding_ShouldThrowException</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoVolumeUnitsLiterAndGallon_WhenAddedTogether_ReturnsAddition</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoVolumeUnitsLiterAndMilliLiter_WhenAddedTogether_ReturnsAddition</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenTwoWeightUnitsTonAndGrams_WhenAddedTogether_ReturnsAddition</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenUnitsOfDifferentTypes_WhileAdding_ThrowsException</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenWrongUnit_WhileSettingForLength_ShouldThrowException</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenWrongUnit_WhileSettingForTemp_ShouldThrowException</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenWrongUnit_WhileSettingForVolume_ShouldThrowException</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenWrongUnit_WhileSettingForWeight_ShouldThrowException</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenYardLength_ShouldReturnInInch</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -164,7 +314,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1.1</a> at 14-Jul-2020, 3:09:27 AM</p>
+<a href="http://www.gradle.org">Gradle 6.1.1</a> at 16-Jul-2020, 2:25:36 AM</p>
 </div>
 </div>
 </body>

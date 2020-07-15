@@ -1,22 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="QuantityMeasurementTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2020-07-13T21:39:27" hostname="DESKTOP-9DCLVAF" time="0.026">
+<testsuite name="QuantityMeasurementTest" tests="46" skipped="0" failures="0" errors="0" timestamp="2020-07-15T20:55:35" hostname="DESKTOP-9DCLVAF" time="0.158">
   <properties/>
-  <testcase name="givenSameReferanceOfUnitInch_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.003"/>
-  <testcase name="givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenSameUnitInch_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="given2InchAnd5Cm_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.008"/>
+  <testcase name="givenDifferentUnitsOfWeightsKGAndGrams_ReturnsTrue" classname="QuantityMeasurementTest" time="0.008"/>
+  <testcase name="givenWrongUnit_WhileSettingForWeight_ShouldThrowException" classname="QuantityMeasurementTest" time="0.004"/>
+  <testcase name="givenTwoUnitsOfDifferentTypesFeetAndInchLength_ShouldBeAddedTogether" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenOnlyOneArgument_ShouldThrowException" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoObjectsOfInchWithDifferentType_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoUnitObjects_WithSameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoValuesOfDifferentTypes_WhileAdding_ShouldThrowException" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenTwoObjectsOfFeetWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenWrongUnit_WhileSettingForLength_ShouldThrowException" classname="QuantityMeasurementTest" time="0.002"/>
+  <testcase name="givenSameUnitInch_ReturnsTrue" classname="QuantityMeasurementTest" time="0.003"/>
+  <testcase name="givenTwoUnitObjects_WithNon0SameLengthButDifferentUnits_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenSameReferenceOfUnitInch_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.005"/>
   <testcase name="givenTwoObjectsOfInchWithSameType_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoWeightUnitsTonAndGrams_WhenAddedTogether_ReturnsAddition" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoVolumeUnitsLiterAndMilliLiter_WhenAddedTogether_ReturnsAddition" classname="QuantityMeasurementTest" time="0.005"/>
+  <testcase name="givenTwoTemperaturesWithDifferentUnitAndValue_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.003"/>
+  <testcase name="givenTwoVolumeUnitsLiterAndGallon_WhenAddedTogether_ReturnsAddition" classname="QuantityMeasurementTest" time="0.006"/>
   <testcase name="givenNullValueWhileComparingUnitInch_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.002"/>
-  <testcase name="given36InchAnd1Yard_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="given36InchAnd1Yard_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.002"/>
+  <testcase name="givenDifferentUnitLiterAndGallon_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoTemperatureUnitsCelAndFar_WhenAddedTogether_ReturnsAddition" classname="QuantityMeasurementTest" time="0.0"/>
   <testcase name="givenSameUnitFeet_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenNullValueWhileComparingUnits_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenSameReferenceOfUnit_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenWrongUnit_WhileSettingForTemp_ShouldThrowException" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenNullValueWhileComparingUnits_ShouldReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
   <testcase name="given1yardAnd36inch_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1YardAnd3Feet_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenSameReferanceOfUnit_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1InchAnd1Yard_IfNotEqualsReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given1FeetAnd1Yard_IfNotEqualsReturnFalse" classname="QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given3FeetAnd1Yard_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenYardLength_ShouldReturnInInch" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenSameUnitLiter_ReturnsTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenSameUnitWeights_ReturnsTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="given1YardAnd3Feet_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="given1InchAnd1Yard_IfNotEqualsReturnFalse" classname="QuantityMeasurementTest" time="0.003"/>
+  <testcase name="given1FeetAnd1Yard_IfNotEqualsReturnFalse" classname="QuantityMeasurementTest" time="0.006"/>
+  <testcase name="givenTwoUnitsOfDifferentTypesFeetAndFeetLength_ShouldBeAddedTogether" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenDifferentUnitsOfWeightsKGAndTone_ReturnsTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenDifferentUnitsLiterAndMilliLiter_ReturnsTrue" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenNegativeValueForWhileSettingUnit_ShouldThrowException" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="given3FeetAnd1Yard_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.002"/>
+  <testcase name="givenWrongUnit_WhileSettingForVolume_ShouldThrowException" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenMoreThanTwoArguments_IfEqualsReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenLiterVolume_ShouldReturnGallon" classname="QuantityMeasurementTest" time="0.002"/>
+  <testcase name="givenUnitsOfDifferentTypes_WhileAdding_ThrowsException" classname="QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givenTwoUnitsOfDifferentTypesInchAndCmLength_ShouldBeAddedTogether" classname="QuantityMeasurementTest" time="0.003"/>
+  <testcase name="givenTwoUnitsOfSameTypeLength_ShouldBeAddedTogether" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenTonsWeight_ShouldReturnKG" classname="QuantityMeasurementTest" time="0.0"/>
+  <testcase name="givenTwoTemperaturesWithSameUnitAndValue_ShouldReturnTrue" classname="QuantityMeasurementTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
