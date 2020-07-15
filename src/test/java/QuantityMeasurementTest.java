@@ -293,6 +293,15 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenTwoTemperatureUnitsCelAndFar_WhenAddedTogether_ReturnsAddition() throws QuantityMeasurementException {
+        TemperatureUnitCreatorFactory cel = new TemperatureUnitCreatorFactory(100, CELSIUS);
+        TemperatureUnitCreatorFactory far = new TemperatureUnitCreatorFactory(212, FAHRENHEIT);
+        far.convert(CELSIUS);
+        double sumOfUnits = quantityOperations.addUnits(cel, far);
+        Assert.assertEquals(200.0, sumOfUnits, 0.0);
+    }
+
+    @Test
     public void givenWrongUnit_WhileSettingForTemp_ShouldThrowException() {
         try {
             new TemperatureUnitCreatorFactory(1, KG);
@@ -313,7 +322,7 @@ public class QuantityMeasurementTest {
     @Test
     public void givenWrongUnit_WhileSettingForWeight_ShouldThrowException() {
         try {
-            new TemperatureUnitCreatorFactory(1, LITRE);
+            new WeightUnitCreatorFactory(1, LITRE);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
         }
@@ -322,7 +331,7 @@ public class QuantityMeasurementTest {
     @Test
     public void givenWrongUnit_WhileSettingForVolume_ShouldThrowException() {
         try {
-            new TemperatureUnitCreatorFactory(1, KG);
+            new VolumeUnitCreatorFactory(1, KG);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
         }
@@ -337,5 +346,26 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(UNITS_MISMATCH, e.type);
         }
+    }
+
+    @Test
+    public void givenYardLength_ShouldReturnInInch() throws QuantityMeasurementException {
+        LengthUnitCreatorFactory len = new LengthUnitCreatorFactory(1.0, YARD);
+        len.convert(INCH);
+        Assert.assertEquals(36, len.getValue(), 0.0);
+    }
+
+    @Test
+    public void givenLiterVolume_ShouldReturnGallon() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory vol = new VolumeUnitCreatorFactory(1.0, LITRE);
+        vol.convert(GALLON);
+        Assert.assertEquals(0.2645502645502646, vol.getValue(), 0.0);
+    }
+
+    @Test
+    public void givenTonsWeight_ShouldReturnKG() throws QuantityMeasurementException {
+        WeightUnitCreatorFactory weight = new WeightUnitCreatorFactory(1.0, TONS);
+        weight.convert(KG);
+        Assert.assertEquals(1000.0, weight.getValue(), 0.0);
     }
 }
