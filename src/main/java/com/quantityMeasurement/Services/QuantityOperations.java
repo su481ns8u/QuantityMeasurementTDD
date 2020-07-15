@@ -1,6 +1,7 @@
 package com.quantityMeasurement.Services;
 
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
+import com.quantityMeasurement.Utilities.IUnitsCreatorFactory;
 import com.quantityMeasurement.Utilities.Units;
 
 import java.util.Arrays;
@@ -18,14 +19,14 @@ public class UnitOperations {
      * @return
      * @throws QuantityMeasurementException
      */
-    public boolean compare(Units... unit) throws QuantityMeasurementException {
-        List<Units> list = Arrays.asList(unit);
+    public boolean compare(IUnitsCreatorFactory... unit) throws QuantityMeasurementException {
+        List<IUnitsCreatorFactory> list = Arrays.asList(unit);
         if (list.size() <= 1 || list.contains(null))
             throw new QuantityMeasurementException(INVALID_ARGUMENTS);
         return Collections.frequency(list, list.get(0)) == list.size();
     }
 
-    public double addUnits(Units unit1, Units unit2) throws QuantityMeasurementException {
+    public double addUnits(IUnitsCreatorFactory unit1, IUnitsCreatorFactory unit2) throws QuantityMeasurementException {
         if (unit1.getClass().equals(unit2.getClass()))
             return unit1.getValue() + unit2.getValue();
         throw new QuantityMeasurementException(UNITS_MISMATCH);
