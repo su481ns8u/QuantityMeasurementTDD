@@ -4,8 +4,6 @@ import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
 import com.quantityMeasurement.Utilities.Unit;
 import com.quantityMeasurement.Utilities.Units;
 
-import java.util.Objects;
-
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.NEGATIVE_VALUE;
 
 public class VolumeUnitCreatorFactory implements Units {
@@ -29,17 +27,18 @@ public class VolumeUnitCreatorFactory implements Units {
 
     @Override
     public double getValue() {
-        return 0;
+        return this.value;
     }
 
     @Override
     public Unit getUnit() {
-        return null;
+        return this.unit;
     }
 
     @Override
     public void convert(Unit unit) {
-
+        this.value = value / unit.conversionFactor;
+        this.unit = unit;
     }
 
     @Override
@@ -48,10 +47,5 @@ public class VolumeUnitCreatorFactory implements Units {
         if (o == null || getClass() != o.getClass()) return false;
         VolumeUnitCreatorFactory that = (VolumeUnitCreatorFactory) o;
         return Double.compare(that.value, value) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(unit, value);
     }
 }
