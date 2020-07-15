@@ -1,6 +1,7 @@
 import com.quantityMeasurement.Exceptions.QuantityMeasurementException;
 import com.quantityMeasurement.Services.UnitOperations;
-import com.quantityMeasurement.Utilities.LengthUnitCreatorFactory;
+import com.quantityMeasurement.Factories.LengthUnitCreatorFactory;
+import com.quantityMeasurement.Factories.VolumeUnitCreatorFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -199,5 +200,26 @@ public class QuantityMeasurementTest {
         LengthUnitCreatorFactory cm = new LengthUnitCreatorFactory(2.5, CM);
         double sumOfUnits = unitOperations.addUnits(cm, inch);
         Assert.assertEquals(3.0, sumOfUnits, 0.0);
+    }
+
+    @Test
+    public void givenSameUnitLiter_ReturnsTrue() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory liter1 = new VolumeUnitCreatorFactory(0.0, LITRE);
+        VolumeUnitCreatorFactory liter2 = new VolumeUnitCreatorFactory(0.0, LITRE);
+        Assert.assertTrue(unitOperations.compare(liter1, liter2));
+    }
+
+    @Test
+    public void givenDifferentUnitLiterAndGallon_ReturnsTrue() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory gallon = new VolumeUnitCreatorFactory(1.0, GALLON);
+        VolumeUnitCreatorFactory liter = new VolumeUnitCreatorFactory(3.78, LITRE);
+        Assert.assertTrue(unitOperations.compare(liter, gallon));
+    }
+
+    @Test
+    public void givenDifferentUnitsLiterAndMilliLiter_ReturnsTrue() throws QuantityMeasurementException {
+        VolumeUnitCreatorFactory ml = new VolumeUnitCreatorFactory(1000.0, MILLI_LITER);
+        VolumeUnitCreatorFactory liter = new VolumeUnitCreatorFactory(1.0, LITRE);
+        Assert.assertTrue(unitOperations.compare(liter, ml));
     }
 }
