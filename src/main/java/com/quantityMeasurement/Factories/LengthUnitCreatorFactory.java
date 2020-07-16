@@ -28,7 +28,9 @@ public class LengthUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public void convert(Units unit) {
+    public void convert(Units unit) throws QuantityMeasurementException {
+        if (unit != INCH && unit != FEET && unit != CM && unit != YARD)
+            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
         this.value = value / unit.conversionFactor;
         this.unit = unit;
     }

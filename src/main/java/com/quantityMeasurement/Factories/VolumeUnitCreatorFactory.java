@@ -33,7 +33,9 @@ public class VolumeUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public void convert(Units unit) {
+    public void convert(Units unit) throws QuantityMeasurementException {
+        if (unit != LITRE && unit != MILLI_LITER && unit != GALLON)
+            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
         this.value = value / unit.conversionFactor;
         this.unit = unit;
     }

@@ -21,7 +21,9 @@ public class WeightUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public void convert(Units unit) {
+    public void convert(Units unit) throws QuantityMeasurementException {
+        if (unit != KG && unit != GRAM && unit != TONS)
+            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
         this.value = value / unit.conversionFactor;
         this.unit = unit;
     }

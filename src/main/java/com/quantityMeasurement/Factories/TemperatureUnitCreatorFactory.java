@@ -28,7 +28,8 @@ public class TemperatureUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
-    public void convert(Units unit) {
+    public void convert(Units unit) throws QuantityMeasurementException {
+        if (unit != CELSIUS && unit != FAHRENHEIT) throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
         if (this.unit == CELSIUS && unit == FAHRENHEIT) this.value = (value * 9 / 5) + 32;
         if (this.unit == FAHRENHEIT && unit == CELSIUS) this.value = (value - 32) * 5 / 9;
         this.unit = unit;
