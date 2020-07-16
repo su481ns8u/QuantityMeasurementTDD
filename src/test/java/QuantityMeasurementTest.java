@@ -368,4 +368,44 @@ public class QuantityMeasurementTest {
         weight.convert(KG);
         Assert.assertEquals(1000.0, weight.getValue(), 0.0);
     }
+
+    @Test
+    public void givenWrongUnitInLength_WhileConverting_ShouldThrowException() {
+        try {
+            LengthUnitCreatorFactory len = new LengthUnitCreatorFactory(2.3, CM);
+            len.convert(FAHRENHEIT);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
+        }
+    }
+
+    @Test
+    public void givenWrongUnitInWeight_WhileConverting_ShouldThrowException() {
+        try {
+            WeightUnitCreatorFactory weight = new WeightUnitCreatorFactory(5.3, KG);
+            weight.convert(LITRE);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
+        }
+    }
+
+    @Test
+    public void givenWrongUnitInVolume_WhileConverting_ShouldThrowException() {
+        try {
+            VolumeUnitCreatorFactory volume = new VolumeUnitCreatorFactory(5.3, LITRE);
+            volume.convert(KG);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
+        }
+    }
+
+    @Test
+    public void givenWrongUnitInTemperature_WhileConverting_ShouldThrowException() {
+        try {
+            TemperatureUnitCreatorFactory temp = new TemperatureUnitCreatorFactory(100, CELSIUS);
+            temp.convert(LITRE);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(UNIT_NOT_ACCEPTED, e.type);
+        }
+    }
 }
