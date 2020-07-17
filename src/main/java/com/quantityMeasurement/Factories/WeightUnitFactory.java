@@ -8,43 +8,40 @@ import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.Ex
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.UNIT_NOT_ACCEPTED;
 import static com.quantityMeasurement.Utilities.Units.*;
 
-public class VolumeUnitCreatorFactory implements IUnitsCreatorFactory {
+public class WeightUnitCreatorFactory implements IUnitsCreatorFactory {
     private Units unit;
     private double value;
 
-    /**
-     * Method to create value unit pairs
-     *
-     * @param value
-     * @param unit
-     * @throws QuantityMeasurementException
-     */
-    public VolumeUnitCreatorFactory(double value, Units unit) throws QuantityMeasurementException {
+    public WeightUnitCreatorFactory(double value, Units unit) throws QuantityMeasurementException {
         if (value < 0) throw new QuantityMeasurementException(NEGATIVE_VALUE);
-        if (unit != LITRE && unit != MILLI_LITER && unit != GALLON)
-            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
+        this.checkUnitAcceptance(unit);
         this.value = value * unit.conversionFactor;
         this.unit = unit;
     }
 
     @Override
-    public double getValue() {
-        return this.value;
+    public void convert(Units unit) throws QuantityMeasurementException {
+        this.checkUnitAcceptance(unit);
+        this.value = value / unit.conversionFactor;
+        this.unit = unit;
     }
 
     @Override
-    public void convert(Units unit) throws QuantityMeasurementException {
-        if (unit != LITRE && unit != MILLI_LITER && unit != GALLON)
+    public void checkUnitAcceptance(Units unit) throws QuantityMeasurementException {
+        if (unit != KG && unit != GRAM && unit != TONS)
             throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
-        this.value = value / unit.conversionFactor;
-        this.unit = unit;
+    }
+
+    @Override
+    public double getValue() {
+        return value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        VolumeUnitCreatorFactory that = (VolumeUnitCreatorFactory) o;
+        WeightUnitCreatorFactory that = (WeightUnitCreatorFactory) o;
         return Double.compare(that.value, value) == 0;
     }
 }

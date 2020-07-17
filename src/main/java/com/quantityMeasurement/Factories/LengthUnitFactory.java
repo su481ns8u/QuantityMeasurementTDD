@@ -8,22 +8,27 @@ import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.Ex
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.UNIT_NOT_ACCEPTED;
 import static com.quantityMeasurement.Utilities.Units.*;
 
-public class WeightUnitCreatorFactory implements IUnitsCreatorFactory {
+public class LengthUnitCreatorFactory implements IUnitsCreatorFactory {
     private Units unit;
     private double value;
 
-    public WeightUnitCreatorFactory(double value, Units unit) throws QuantityMeasurementException {
+    /**
+     * Method to create value unit pairs
+     *
+     * @param value
+     * @param unit
+     * @throws QuantityMeasurementException
+     */
+    public LengthUnitCreatorFactory(double value, Units unit) throws QuantityMeasurementException {
         if (value < 0) throw new QuantityMeasurementException(NEGATIVE_VALUE);
-        if (unit != KG && unit != GRAM && unit != TONS)
-            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
+        this.checkUnitAcceptance(unit);
         this.value = value * unit.conversionFactor;
         this.unit = unit;
     }
 
     @Override
     public void convert(Units unit) throws QuantityMeasurementException {
-        if (unit != KG && unit != GRAM && unit != TONS)
-            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
+        this.checkUnitAcceptance(unit);
         this.value = value / unit.conversionFactor;
         this.unit = unit;
     }
@@ -34,10 +39,22 @@ public class WeightUnitCreatorFactory implements IUnitsCreatorFactory {
     }
 
     @Override
+    public void checkUnitAcceptance(Units unit) throws QuantityMeasurementException {
+        if (unit != INCH && unit != FEET && unit != CM && unit != YARD)
+            throw new QuantityMeasurementException(UNIT_NOT_ACCEPTED);
+    }
+
+    /**
+     * Method to check equality of two objects
+     *
+     * @param o
+     * @return
+     */
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        WeightUnitCreatorFactory that = (WeightUnitCreatorFactory) o;
+        LengthUnitCreatorFactory that = (LengthUnitCreatorFactory) o;
         return Double.compare(that.value, value) == 0;
     }
 }
