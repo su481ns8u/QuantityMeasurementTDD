@@ -1,5 +1,8 @@
-package com.quantityMeasurement.Utilities;
+package com.quantityMeasurement.Enums;
 
+/**
+ * Enum for all units
+ */
 public enum Units {
     FEET(12),
     INCH(1),

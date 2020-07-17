@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.quantityMeasurement.Exceptions.QuantityMeasurementException.ExceptionType.*;
-import static com.quantityMeasurement.Utilities.Units.*;
+import static com.quantityMeasurement.Enums.Units.*;
 
 public class QuantityMeasurementTest {
     QuantityOperations quantityOperations = new QuantityOperations();
